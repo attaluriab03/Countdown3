@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import '../styles/Weather.css';
+import Button from '@mui/material/Button';
 
 export const Weather = () => {
     const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
@@ -94,7 +95,6 @@ export const Weather = () => {
 
     // display everything when button is clicked
     const handleClick = () => {
-        // setShowLocationData(true);
         if (location !== '') {
             setCoordinates(null);
         }
@@ -104,7 +104,7 @@ export const Weather = () => {
         <> 
             <h1> Weather App </h1>
             <input type="text" value={location} onChange={handleChange} placeholder='Enter Location'/>
-            <button type="submit" onClick={() => handleClick()}> Get Weather & News </button>
+            <Button type="submit" onClick={() => handleClick()}> Get Weather & News </Button>
             {coordinates && (
                 <div> 
                     <p> Latitude: {coordinates.lat} </p>
